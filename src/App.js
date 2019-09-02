@@ -6,9 +6,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display1: '',
-      display2: '',
-      display3: '',
       focusedFieldName: '',
       initialValueOfFocusedField: null,
       layout: {
@@ -72,7 +69,7 @@ class App extends React.Component {
       });
     } else {
       this.setState({
-        [this.state.focusedFieldName]: this.state[this.state.focusedFieldName] + theKey
+        [this.state.focusedFieldName]: (this.state[this.state.focusedFieldName] || '') + theKey
       });
     }
   };
@@ -123,6 +120,7 @@ class App extends React.Component {
         <label>Sample Field 1</label> <input type='text' name='display1' value={this.state.display1} readOnly onClick={this.designateInputField} /><br />
         <label>Sample Field 2</label> <input type='text' name='display2' value={this.state.display2} readOnly onClick={this.designateInputField} /><br />
         <label>Sample Field 3</label> <input type='text' name='display3' value={this.state.display3} readOnly onClick={this.designateInputField} /><br />
+        <label>Sample Field 4</label> <input type='text' name='display4' value={this.state.display4} readOnly onClick={this.designateInputField} /><br />
         <br />
         <div className='keyboard' ref='keyboard'>
           <button onClick={this.saveValueOfFocusedField}>Save</button> <button onClick={this.resetValueOfFocusedField}>Cancel</button><br />
